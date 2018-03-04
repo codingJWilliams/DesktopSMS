@@ -1,19 +1,71 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+<!doctype html>
+<html lang="en">
 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>DesktopSMS</title>
+    <style>
+        .j-draggable {
+            -webkit-app-region: drag;
+        }
+        
+        .j-not-draggable,
+        button,
+        input {
+            -webkit-app-region: no-drag !important;
+        }
+    </style>
+</head>
+
+<body style="background-color: #36393e; color: white;">
+    <nav class="navbar navbar-expand-lg navbar-dark j-draggable" style="background-color: #23272a">
+        <button class="btn btn-outline-danger btn-sm" style="margin-right: 5px;" onclick="require('electron').remote.getCurrentWindow().close()">X</button>
+        <button class="btn btn-outline-warning btn-sm" style="margin-right: 15px;" onclick="require('electron').remote.getCurrentWindow().minimize()">-</button>
+
+        <a class="navbar-brand" href="#">DesktopSMS</a>
+        <button class="navbar-toggler j-not-draggable" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+            </ul>
+            <div class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="PIN Code">
+                <button class="btn btn-outline-success my-2 my-sm-0 j-not-draggable">Update</button>
+            </div>
+        </div>
+    </nav>
+    <div class="container ">
+        <div class="row ">
+            <h1> Hi </h1>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
     <script>
-      // You can also require other files to run in this process
-      require('./renderer.js')
+        if (typeof module === 'object') {
+            window.module = module;
+            module = undefined;
+        }
     </script>
-  </body>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin="anonymous "></script>
+    <script>
+        if (window.module) module = window.module;
+    </script>
+    <script>
+        // You can also require other files to run in this process
+        require('./renderer.js')
+    </script>
+</body>
+
 </html>
